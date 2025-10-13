@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: freshoncall-server
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    autoDeploy: true
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: FRONTEND_URL
+        value: https://your-netlify-site.netlify.app
+      - key: ADMIN_EMAIL
+        value: admin@freshoncall.local
+      - key: ADMIN_PASSWORD
+        value: FreshOnCall2025
